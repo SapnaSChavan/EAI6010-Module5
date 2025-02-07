@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Set API URL
-API_URL = "http://127.0.0.1:8000/predict/"
+API_URL = "https://eai6010-youtube-comment-spam-classifier.onrender.com/predict/"
 
 # Custom Styling for Title and Layout
 st.markdown(
