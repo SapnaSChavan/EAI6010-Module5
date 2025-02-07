@@ -6,11 +6,15 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
+import os
 
 # ✅ Load the trained model and vectorizer
 try:
-    model = joblib.load("svm_model.pkl")  # Make sure this file exists in your directory
-    vectorizer = joblib.load("tfidf_vectorizer.pkl")  # Ensure this is available
+    # Load the trained model and vectorizer
+    model_path = os.path.join(os.path.dirname(__file__), "model")
+    model = joblib.load(os.path.join(model_path, "svm_model.pkl"))
+    vectorizer = joblib.load(os.path.join(model_path, "tfidf_vectorizer.pkl"))
+    
 except FileNotFoundError:
     raise RuntimeError("Missing model files. Ensure 'svm_model.pkl' and 'tfidf_vectorizer.pkl' are present.")
 
